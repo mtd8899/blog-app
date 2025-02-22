@@ -1,11 +1,12 @@
 
 import { useState } from "react";
 import { Route, Routes, BrowserRouter } from "react-router-dom";
+import MainWrapper from "./layouts/MainWrapper"
 import Index from "./views/core/Index";
-/*import Detail from "@views/core/Detail";
+import Detail from "./views/core/Detail";
 import Search from "./views/core/Search";
 import Category from "./views/core/Category";
-import About from "./views/pages/About";
+/*import About from "./views/pages/About";
 import Contact from "./views/pages/Contact";
 import Register from "./views/auth/Register";
 import Login from "./views/auth/Login";
@@ -25,12 +26,13 @@ function App() {
     return (
         <>
            <BrowserRouter>
+               <MainWrapper>
                 <Routes>
                     <Route path="/" element={<Index />} />
-                    {/*<Route path="/:slug/" element={<Detail />} />
+                    <Route path="/:slug/" element={<Detail />} />
                     <Route path="/category/" element={<Category />} />
                     <Route path="/search/" element={<Search />} />
-                    /*}
+
 
                     {/* Authentication
                     <Route path="/register/" element={<Register />} />
@@ -52,6 +54,7 @@ function App() {
                     <Route path="/about/" element={<About />} />
                     <Route path="/contact/" element={<Contact />} />*/}
                 </Routes>
+              </MainWrapper>
             </BrowserRouter>
         </>
     );
