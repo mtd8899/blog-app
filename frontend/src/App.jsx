@@ -39,7 +39,7 @@ function App() {
                     <Route path="/login/" element={<Login />} />
                     <Route path="/logout/" element={<Logout />} />
                     <Route path="/forgot-password/" element={<ForgotPassword />} />
-                    <Route path="/create-password/" element={<CreatePassword />} />*/}
+                    <Route path="/create-password/" element={<CreatePassword />} />
 
                     {/* Dashboard */}
                     <Route path="/dashboard/" element={<Dashboard />} />
