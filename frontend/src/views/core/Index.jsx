@@ -1,12 +1,12 @@
 import React from "react";
-import Header from "../partials/Header";
-import Footer from "../partials/Footer";
+import Header from "../../partials/Header";
+import Footer from "../../partials/Footer";
 import { Link } from "react-router-dom";
 
 function Index() {
     return (
         <div>
-            <Header />
+          <Header />
             <section className="p-0">
                 <div className="container">
                     <div className="row">
