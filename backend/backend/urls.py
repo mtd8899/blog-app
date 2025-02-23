@@ -30,7 +30,7 @@ schema_view = get_schema_view(
         default_version="v1",
         description="This is the documentation for the backend API",
         terms_of_service="http://mywbsite.com/policies/",
-        contact=openapi.Contact(email="desphixs@gmail.com"),
+        contact=openapi.Contact(email="mikedenum1988@gmail.com"),
         license=openapi.License(name="BSD Licence"),
     ),
     public=True,
@@ -38,7 +38,7 @@ schema_view = get_schema_view(
 )
 
 urlpatterns = [
-    path("", schema_view.with_ui('swagger', cache_timeout=0), name="schema-swagger-ui"),
+    #path("", schema_view.with_ui('swagger', cache_timeout=0), name="schema-swagger-ui"),
     path('admin/', admin.site.urls),
     path('api/v1/', include("api.urls")),
 

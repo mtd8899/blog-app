@@ -13,6 +13,7 @@ class CategoryAdmin(admin.ModelAdmin):
     list_display = ["title"]
 
 class PostAdmin(admin.ModelAdmin):
+    prepopulated_fields = {"slug": ["title"]}
     list_display = ["title","user","category","view"]
 
 class CommentAdmin(admin.ModelAdmin):

@@ -1,9 +1,39 @@
-import React from "react";
+import { useState, useEffect } from "react";
 import Header from "../partials/Header";
 import Footer from "../partials/Footer";
 import { Link } from "react-router-dom";
 
+import apiInstance from "../../utils/axios";
+import Toast from "../../plugin/Toast";
+import Moment from "../../plugin/Moment";
+
 function Index() {
+    /*const [posts, setPosts] = useState([]);*/
+    const [category, setCategory] = useState([]);
+
+    const posts = [
+        { id: 1, title: "First Post", content: "This is the first post", slug: "first-post",
+          date:"February 23, 25", view: 20, user: "Mike" },
+        { id: 2, title: "Second Post", content: "This is the second post", slug: "second-post",
+          date: "Jabuary 23, 2025", view: 50, user: "Mikel Denum"
+        }
+    ]
+
+   {/*const fetchPosts = async () => {
+       try{
+            const response_post = await apiInstance.get("post/lists/")
+            const response_category = await apiInstance.get("post/category/post/");
+            setPosts(response_post.data);
+            setCategory (response_category.data);
+        } catch (error){
+            console.log(error)
+        }
+    };
+
+    useEffect(() => {
+        fetchPosts();
+    }, []);*/}
+
     return (
         <div>
           <Header />
@@ -23,15 +53,16 @@ function Index() {
             <section className="pt-4 pb-0">
                 <div className="container">
                     <div className="row">
-                        <div className="col-sm-6 col-lg-3">
+                        {posts?.map(post => (
+                        <div className="col-sm-6 col-lg-3" key={post.id}>
                             <div className="card mb-4">
                                 <div className="card-fold position-relative">
                                     <img className="card-img" style={{ width: "100%", height: "160px", objectFit: "cover" }} src="https://awcdn1.ahmad.works/writing/wp-content/uploads/2015/05/kitchen-and-dining-room-P5JHHM6.jpg" alt="Card image" />
                                 </div>
                                 <div className="card-body px-3 pt-3">
                                     <h4 className="card-title">
-                                        <Link to={`/7-common-mistakes-everyone-makes-while-travelling/`} className="btn-link text-reset stretched-link fw-bold text-decoration-none">
-                                            7 common mistakes everyone makes while traveling
+                                        <Link to={post.slug} className="btn-link text-reset stretched-link fw-bold text-decoration-none">
+                                            {post.title}
                                         </Link>
                                     </h4>
                                     <button style={{ border: "none", background: "none" }}>
@@ -44,21 +75,24 @@ function Index() {
                                     <ul className="mt-3 list-style-none" style={{ listStyle: "none" }}>
                                         <li>
                                             <a href="#" className="text-dark text-decoration-none">
-                                                <i className="fas fa-user"></i> Louis Ferguson
+                                                <i className="fas fa-user"></i>
+                                                &nbsp;{post.user}
                                             </a>
                                         </li>
                                         <li className="mt-2">
-                                            <i className="fas fa-calendar"></i> Mar 07, 2022
+                                            <i className="fas fa-calendar"></i>
+                                            &nbsp;{post.date}
                                         </li>
                                         <li className="mt-2">
-                                            <i className="fas fa-eye"></i> 10 Views
+                                            <i className="fas fa-eye"></i>
+                                            &nbsp;{post.view}
                                         </li>
                                     </ul>
                                 </div>
                             </div>
-                        </div>
+                        </div> ))}
 
-                        <div className="col-sm-6 col-lg-3">
+                        {/*<div className="col-sm-6 col-lg-3">
                             <div className="card mb-4">
                                 <div className="card-fold position-relative">
                                     <img className="card-img" style={{ width: "100%", height: "160px", objectFit: "cover" }} src="https://awcdn1.ahmad.works/writing/wp-content/uploads/2015/05/black-woman-smiling-with-hands-in-hair-PMCFL93-1.jpg" alt="Card image" />
@@ -140,7 +174,7 @@ function Index() {
                                     </ul>
                                 </div>
                             </div>
-                        </div>
+                        </div>*/}
                     </div>
                     <nav className="d-flex mt-2">
                         <ul className="pagination">
